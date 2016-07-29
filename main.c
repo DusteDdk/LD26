@@ -614,7 +614,7 @@ int main(int argc, char *argv[])
 
 
   room0 = eoObjCreate(ENGOBJ_MODEL);
-  room0->model = eoModelLoad( Data("/data/objs/room0/",""), "room0.obj" );
+  room0->model = eoModelLoad( "/data/objs/room0/", "room0.obj" );
   room0->renderType=EO_RENDER_WIREFRAME;
   eoObjBake(room0);
   eoObjAdd( room0 );
@@ -625,7 +625,7 @@ int main(int argc, char *argv[])
   {
     sprintf(buf, "pic%i.obj",i );
     objPic[i] = eoObjCreate(ENGOBJ_MODEL);
-    objPic[i]->model = eoModelLoad( Data("/data/objs/room0/",""), buf );
+    objPic[i]->model = eoModelLoad( "/data/objs/room0/", buf );
     objPic[i]->renderType=EO_RENDER_WIREFRAME;
     objPic[i]->clickedFunc=picsMouseOverFunc;
     objPic[i]->fullBright=1;
@@ -638,13 +638,13 @@ int main(int argc, char *argv[])
 
   //Load the obj
   engObj_s* room1 = eoObjCreate(ENGOBJ_MODEL);
-  room1->model = eoModelLoad( Data("/data/objs/",""), "world.obj" );
+  room1->model = eoModelLoad( "/data/objs/", "world.obj" );
 
   eoObjBake(room1);
 
   //Add tree
   tree = eoObjCreate(ENGOBJ_MODEL);
-  tree->model = eoModelLoad( Data("/data/objs/",""), "tree.obj" );
+  tree->model = eoModelLoad( "/data/objs/", "tree.obj" );
   tree->renderType = EO_RENDER_WIREFRAME;
   tree->solidColor[0] = 0;
   tree->solidColor[2] = 0;
@@ -661,7 +661,7 @@ int main(int argc, char *argv[])
   //The portal out of the room
   portal = eoObjCreate(ENGOBJ_MODEL);
   portal->thinkFunc = portalFadeIn;
-  portal->model = eoModelLoad( Data("/data/objs/",""), "portal.obj");
+  portal->model = eoModelLoad( "/data/objs/", "portal.obj");
   portal->renderType = EO_RENDER_WIREFRAME;
   portal->fullBright = 1;
   portal->solidColor[0] = 255;
@@ -674,7 +674,7 @@ int main(int argc, char *argv[])
 
   beach = eoObjCreate(ENGOBJ_MODEL);
   beach->thinkFunc = beachFadeIn;
-  beach->model = eoModelLoad( Data("/data/objs/",""), "beach.obj");
+  beach->model = eoModelLoad( "/data/objs/", "beach.obj");
   beach->renderType = EO_RENDER_WIREFRAME;
   beach->fullBright = 1;
   beach->solidColor[0] = 200;
@@ -684,9 +684,9 @@ int main(int argc, char *argv[])
   eoObjBake(beach);
 
   //
-  waterFrame[0] = eoModelLoad( Data("/data/objs/",""), "water0.obj");
-  waterFrame[1] = eoModelLoad( Data("/data/objs/",""), "water1.obj");
-  waterFrame[2] = eoModelLoad( Data("/data/objs/",""), "water2.obj");
+  waterFrame[0] = eoModelLoad( "/data/objs/", "water0.obj");
+  waterFrame[1] = eoModelLoad( "/data/objs/", "water1.obj");
+  waterFrame[2] = eoModelLoad( "/data/objs/", "water2.obj");
 
   water = eoObjCreate(ENGOBJ_MODEL);
   water->thinkFunc = waterFadeIn;
@@ -703,7 +703,7 @@ int main(int argc, char *argv[])
 
 
   globe = eoObjCreate(ENGOBJ_MODEL);
-  globe->model = eoModelLoad( Data("/data/objs/",""), "globe.obj");
+  globe->model = eoModelLoad( "/data/objs/", "globe.obj");
 
   globe->thinkFunc = globeSpin;
   eoObjBake(globe);
@@ -715,9 +715,9 @@ int main(int argc, char *argv[])
 
 
   ambienceSnd = eoSampleLoad(Data("/data/sound/", "ambience.ogg"));
-  endSnd = eoSampleLoad( Data("/data/sound/", "p.ogg"));
-  touchSndA = eoSampleLoad(Data("/data/sound/", "ta.ogg"));
-  touchSndB = eoSampleLoad(Data("/data/sound/", "tb.ogg"));
+  endSnd      = eoSampleLoad(Data("/data/sound/", "p.ogg"));
+  touchSndA   = eoSampleLoad(Data("/data/sound/", "ta.ogg"));
+  touchSndB   = eoSampleLoad(Data("/data/sound/", "tb.ogg"));
 
 
   eoSamplePlay(ambienceSnd,128);
